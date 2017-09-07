@@ -1,7 +1,12 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.views.generic import TemplateView
 
 # Create your views here.
-def home(request):
+class HomeView(TemplateView):
+    template_name = 'home.html'
 
-    return render(request, 'base.html', {'html_var': 'context variable'})
+    def get_context_data(self, *args, **kwargs):
+        context = super(HomeView, self).get_context_data(*args, **kwargs)
+        print(context)
+        return context
