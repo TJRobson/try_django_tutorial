@@ -22,6 +22,6 @@ from restaurants.views import HomeView
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', HomeView.as_view()),
-    url(r'^about/$', AboutView.as_view(template_name='about.html')),
-    url(r'^contact/$', ContactView.as_view(template_name='contact.html')),
+    url(r'^about/$', TemplateView.as_view(template_name='about.html')),
+    url(r'^contact/$', TemplateView.as_view(template_name='contact.html')),
 ]
