@@ -18,10 +18,7 @@ class RestaurantLocation(models.Model):
         return self.name
 
 def rl_pre_save_receiver(sender, instance, *args, **kwargs):
-    print('saving...')
-    print(instance.timestamp)
     if not instance.slug:
-        instance.name = 'Another new title'
         instance.slug = unique_slug_generator(instance)
 
 # def rl_post_save_receiver(sender, instance, created, *args, **kwargs):
